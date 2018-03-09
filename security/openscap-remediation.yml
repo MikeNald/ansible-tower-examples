@@ -25,7 +25,7 @@
       state: present
        
   - name: git repo config  
-    command: /bin/git clone git@github.com:MikeNald/ansible-tower-examples.git /oscap-reports/ansible-tower-examples
+    shell: git clone git@github.com:MikeNald/ansible-tower-examples.git /oscap-reports/ansible-tower-examples
 
   #- name:  git username config
   #  command: git config user.name MikeNald \ 
