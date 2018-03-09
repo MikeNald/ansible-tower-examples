@@ -27,7 +27,7 @@
   - name: git repo config  
     git:
      repo: ssh://git@github.com/MikeNald/ansible-tower-examples.git
-     dest: /oscap-reports/ansible-tower-examples/
+     dest: /oscap-reports/ansible-tower-examples
      update: yes
 
   - name:  git username config
