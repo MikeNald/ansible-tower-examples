@@ -6,7 +6,7 @@
   tasks:
 
   - name: create openscap remediation playbook
-    command: oscap xccdf generage fix \
+    command: oscap xccdf generate fix \
         --fix-type ansible \
         --profile {{ oscap_profile }} \
         --output /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml \
