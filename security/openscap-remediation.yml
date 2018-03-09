@@ -38,7 +38,7 @@
      flat: yes          
            
   - name: add new playbook to git
-    command: git add ../home/mike/ansible-tower-examples/{{ inventory_hostname }}-standard-rhel7-role.yml          
+    command: git add /oscap-reports/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml          
 
   - name: git commit 
     command: git commit -m "add new playbook for fixing sec issue on host {{ inventory_hostname }}"
