@@ -28,7 +28,8 @@
   #  shell: ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
     
   - name: cloning git repo locally
-    become_user: ops
+    become: false
+    #become_user: ops
     git:
      repo: git@github.com:MikeNald/ansible-tower-examples.git
      dest: /home/ops/ansible-tower-examples/
