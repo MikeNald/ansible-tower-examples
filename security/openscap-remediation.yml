@@ -24,8 +24,11 @@
       name: git
       state: present
        
+  - name: accept ssh keys for git
+    shell: ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
+    
   - name: git repo config  
-    shell: git clone git@github.com:MikeNald/ansible-tower-examples.git /oscap-reports/ansible-tower-examples
+    command: git clone git@github.com:MikeNald/ansible-tower-examples.git /oscap-reports/ansible-tower-examples
 
   #- name:  git username config
   #  command: git config user.name MikeNald \ 
