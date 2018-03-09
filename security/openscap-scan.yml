@@ -22,7 +22,7 @@
         --results-arf /tmp/oscap-arf.xml \
         --report /tmp/oscap-report.html \
         --fetch-remote-resources \
-        /usr/share/xml/scap/ssg/content/{{ oscap_policy }}.xml
+        /usr/share/xml/scap/ssg/content/{{ oscap_policy }}
   
   - block:
     - name: create openscap remediation playbook
@@ -30,7 +30,7 @@
         --fix-type ansible
         --profile {{ oscap_profile }} \
         --output /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
-        /usr/share/xml/scap/ssg/content/{{ oscap_policy }}.xml
+        /usr/share/xml/scap/ssg/content/{{ oscap_policy }}
 
     always:
     - name: download report
