@@ -16,13 +16,13 @@
   - name: download report
     fetch:
      src: /tmp/oscap-report.html
-     dest: ../oscap-reports/{{ inventory_hostname }}-scan-xccdf-report.html
+     dest: /oscap-reports/{{ inventory_hostname }}-scan-xccdf-report.html
      flat: yes
     
   - name: download ansible playbook
     fetch:
      src: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
-     dest: ../home/mike/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
+     dest: /home/mike/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
      flat: yes
    
   - name: install git 
@@ -33,7 +33,7 @@
   - name: git repo config  
     git:
      repo: 'git@github.com:MikeNald/ansible-tower-examples.git'
-     dest: /home/mike
+     dest: /home/mike/ansible-tower-examples/
      update: yes
 
   - name:  git username config
