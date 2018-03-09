@@ -29,7 +29,7 @@
     
   - name: git repo config  
     command: git clone git@github.com:MikeNald/ansible-tower-examples.git /oscap-reports/ansible-tower-examples
-
+    become: false
   #- name:  git username config
   #  command: git config user.name MikeNald \ 
   #         git config git remote set-url origin git@github.com:MikeNald/ansible-tower-examples.git
