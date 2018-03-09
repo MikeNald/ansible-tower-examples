@@ -22,9 +22,14 @@
   - name: download ansible playbook
     fetch:
      src: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
-     dest: ../home/mike/ansible-tower-examples/{{ inventory_hostname }}-standard-rhel7-role.yml
+     dest: ../home/mike/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
      flat: yes
    
+  - name: install git 
+    yum:
+      name: git
+      state: present
+       
   - name: git repo config  
     git:
      repo: 'git@github.com:MikeNald/ansible-tower-examples.git'
