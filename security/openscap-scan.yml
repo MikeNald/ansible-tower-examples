@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: oscap_target
 
   vars:
     oscap_profile: xccdf_org.ssgproject.content_profile_standard
