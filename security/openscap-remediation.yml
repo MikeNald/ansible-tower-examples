@@ -25,10 +25,7 @@
       state: present
        
   - name: git repo config  
-    git:
-     repo: git@github.com:MikeNald/ansible-tower-examples.git
-     dest: /oscap-reports/ansible-tower-examples
-     update: yes
+    command /bin/git clone --origin origin 'ssh:git@github.com/MikeNald/ansible-tower-examples.git' /oscap-reports/ansible-tower-examples
 
   #- name:  git username config
   #  command: git config user.name MikeNald \ 
