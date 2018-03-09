@@ -24,12 +24,21 @@
       name: git
       state: present
        
-  - name: accept ssh keys for git
-    shell: ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
+  #- name: accept ssh keys for git
+  #  shell: ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
     
-  - name: git repo config  
-    command: git clone git@github.com:MikeNald/ansible-tower-examples.git /home/ops/ansible-tower-examples
-    become: false
+  - name: cloning git repo locally
+    sudo: yes
+    git:
+     repo: git@github.com:MikeNald/ansible-tower-examples.git
+     dest: /home/ops/ansible-tower-examples/
+     key_file: /home/ops/.ssh/id_rsa.pub
+     accept_hostkey: yes
+     force: yes  
+    
+  #- name: git repo config  
+  #  command: git clone git@github.com:MikeNald/ansible-tower-examples.git /home/ops/ansible-tower-examples
+  # become: false
   #- name:  git username config
   #  command: git config user.name MikeNald \ 
   #         git config git remote set-url origin git@github.com:MikeNald/ansible-tower-examples.git
