@@ -33,7 +33,7 @@
     git:
      repo: git@github.com:MikeNald/ansible-tower-examples.git
      dest: /home/ops/ansible-tower-examples/
-     #key_file: /home/ops/.ssh/id_rsa.pub
+     key_file: /home/ops/.ssh/id_rsa.pub
      accept_hostkey: yes
      force: yes  
     
