@@ -31,7 +31,8 @@
     #become: false
     #become_user: ops
     git:
-     repo: git@github.com:MikeNald/ansible-tower-examples.git
+     #repo: git@github.com:MikeNald/ansible-tower-examples.git
+     repo: ssh://git@github.com/MikeNald/ansible-tower-examples.git
      dest: /home/ops/ansible-tower-examples/
      #key_file: /home/ops/.ssh/id_rsa.pub
      accept_hostkey: yes
