@@ -3,6 +3,8 @@
   vars:
     oscap_profile: xccdf_org.ssgproject.content_profile_standard
     oscap_policy: ssg-rhel7-ds.xml
+  become: true
+  
   tasks:
 
   - name: create openscap remediation playbook
@@ -11,9 +13,7 @@
         --profile {{ oscap_profile }} \
         --output /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml \
         /usr/share/xml/scap/ssg/content/{{ oscap_policy }}
-    become: true
-
-
+    #become: true
         
   - name: install git 
     yum:
@@ -35,7 +35,7 @@
     copy:
      src: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
      dest: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml         
-
+     
   - name: download report
     copy:
      src: /tmp/oscap-report.html
