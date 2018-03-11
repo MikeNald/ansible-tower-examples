@@ -19,7 +19,7 @@
       path: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
       owner: ops
       group: ops
-      mode: 0644
+      mode: 0755
     
   - name: install git 
     yum:
@@ -42,7 +42,7 @@
       path: /home/ops/ansible-tower-examples
       owner: ops
       group: ops
-      mode: 0644      
+      mode: 0755      
   
   - name: copy ansible playbook to local git repo folder
     copy:
