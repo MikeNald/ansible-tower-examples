@@ -38,12 +38,11 @@
      force: yes  
   
    - name: fixing permission on git repo
-    file:
-      path: /home/ops/ansible-tower-examples
-      owner: ops
-      group: ops
-      mode: 0644      
-  
+     file:
+       path: /home/ops/ansible-tower-examples
+       owner: ops
+       group: ops
+       mode: 0644      
   
   - name: copy ansible playbook to local git repo folder
     copy:
