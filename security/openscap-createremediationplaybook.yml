@@ -13,11 +13,7 @@
         /usr/share/xml/scap/ssg/content/{{ oscap_policy }}
     become: true
 
-   
-  - name: download report
-    copy:
-     src: /tmp/oscap-report.html
-     dest: /oscap-reports/{{ inventory_hostname }}-scan-xccdf-report.html
+
         
   - name: install git 
     yum:
@@ -39,7 +35,12 @@
     copy:
      src: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
      dest: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml         
-           
+
+  - name: download report
+    copy:
+     src: /tmp/oscap-report.html
+     dest: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-scan-xccdf-report.html
+     
   - name: add new playbook to git 
     command: git add /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml          
 
