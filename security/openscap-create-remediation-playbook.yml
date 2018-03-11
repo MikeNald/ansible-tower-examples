@@ -70,10 +70,10 @@
     - /home/ops/ansible-tower-examples/security/report/{{ inventory_hostname }}-scan-xccdf-report.html
       
   - name: git commit 
-    command: git commit -m "add new playbook for fixing sec issue on host {{ inventory_hostname }}"
+    shell: cd /home/ops/ansible-tower-examples/; git commit -m "add new playbook for fixing sec issue on host {{ inventory_hostname }}"
 
   - name: git push
-    command: git push 
+    shell: cd /home/ops/ansible-tower-examples/; git push 
 
   - name: delete local git repo folder
     command: rm -rf /home/ops/ansible-tower-examples/
