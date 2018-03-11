@@ -49,11 +49,13 @@
     copy:
      src: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
      dest: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml         
+     remote_src: yes
      
   - name: download report
     copy:
      src: /tmp/oscap-report.html
      dest: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-scan-xccdf-report.html
+     remote_src: yes
      
   - name: add new playbook to git 
     command: git add /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml          
