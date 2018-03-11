@@ -15,11 +15,10 @@
 
    
   - name: download report
-    fetch:
+    copy:
      src: /tmp/oscap-report.html
      dest: /oscap-reports/{{ inventory_hostname }}-scan-xccdf-report.html
-     flat: yes
-    
+        
   - name: install git 
     yum:
       name: git
