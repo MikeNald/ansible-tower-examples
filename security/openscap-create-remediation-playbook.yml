@@ -43,6 +43,7 @@
       owner: ops
       group: ops
       mode: 0755      
+      recurse: yes
   
   - name: copy ansible playbook to local git repo folder
     copy:
