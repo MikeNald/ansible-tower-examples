@@ -15,7 +15,7 @@
         /usr/share/xml/scap/ssg/content/{{ oscap_policy }}
   
   - name: fixing permission on output playbook
-    command: chmod 755 /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
+    command: chmod 644 /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
         
   - name: install git 
     yum:
