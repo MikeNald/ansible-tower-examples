@@ -15,8 +15,12 @@
         /usr/share/xml/scap/ssg/content/{{ oscap_policy }}
   
   - name: fixing permission on output playbook
-    command: chmod 644 /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
-        
+    file:
+      path: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
+      owner: ops
+      group: ops
+      mode: 0644
+    
   - name: install git 
     yum:
       name: git
@@ -32,7 +36,15 @@
      key_file: /home/ops/.ssh/id_rsa
      accept_hostkey: yes
      force: yes  
-             
+  
+   - name: fixing permission on git repo
+    file:
+      path: /home/ops/ansible-tower-examples
+      owner: ops
+      group: ops
+      mode: 0644      
+  
+  
   - name: copy ansible playbook to local git repo folder
     copy:
      src: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
