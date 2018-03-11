@@ -3,6 +3,7 @@
   vars:
     oscap_profile: xccdf_org.ssgproject.content_profile_standard
     oscap_policy: ssg-rhel7-ds.xml
+  become: true
 
   tasks:
 
