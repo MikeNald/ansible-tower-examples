@@ -45,21 +45,30 @@
       mode: 0755      
       recurse: yes
   
-  - name: copy ansible playbook to local git repo folder
+  - name: copy ansible playbook to local gitepo  folder
     copy:
      src: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
      dest: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml         
      remote_src: yes
+     owner: ops
+     group: ops
+     mode: 0755
      
-  - name: download report
+  - name: copying report to local git folder
     copy:
      src: /tmp/oscap-report.html
-     dest: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-scan-xccdf-report.html
+     dest: /home/ops/ansible-tower-examples/security/report/{{ inventory_hostname }}-scan-xccdf-report.html
      remote_src: yes
+     owner: ops
+     group: ops
+     mode: 0755
      
   - name: add new playbook to git 
-    command: git add /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml          
-
+    command: git add "{{ item }}"          
+    with_items:
+    - /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml 
+    - /home/ops/ansible-tower-examples/security/report/{{ inventory_hostname }}-scan-xccdf-report.html
+      
   - name: git commit 
     command: git commit -m "add new playbook for fixing sec issue on host {{ inventory_hostname }}"
 
