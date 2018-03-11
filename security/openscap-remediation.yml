@@ -25,32 +25,21 @@
       name: git
       state: present
        
-  #- name: accept ssh keys for git
-  #  shell: ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
+  - name: accept ssh keys for git
+    shell: ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
     
   - name: cloning git repo locally
-    #become: true
-    #become_user: ops
     git:
-     #repo: git@github.com:MikeNald/ansible-tower-examples.git
      repo: ssh://git@github.com/MikeNald/ansible-tower-examples.git
      dest: /home/ops/ansible-tower-examples
      key_file: /home/ops/.ssh/id_rsa
      accept_hostkey: yes
      force: yes  
-    
-  #- name: git repo config  
-  #  command: git clone git@github.com:MikeNald/ansible-tower-examples.git /home/ops/ansible-tower-examples
-  # become: false
-  #- name:  git username config
-  #  command: git config user.name MikeNald \ 
-  #         git config git remote set-url origin git@github.com:MikeNald/ansible-tower-examples.git
-           
+             
   - name: copy ansible playbook to local git repo folder
-    fetch:
+    copy:
      src: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
-     dest: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     flat: yes          
+     dest: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml         
            
   - name: add new playbook to git 
     command: git add /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml          
@@ -60,3 +49,11 @@
 
   - name: git push
     command: git push 
+
+  - name: delete local git repo folder
+    command: rm -rf /home/ops/ansible-tower-examples/
+    
+  - name: uninstall git
+    yum:
+      name: git
+      state: removed
