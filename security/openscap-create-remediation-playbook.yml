@@ -75,6 +75,12 @@
   - name: git push
     shell: cd /home/ops/ansible-tower-examples/; git push
     become_user: ops
+    
+  - replace:
+    path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
+    regexp: '- hosts\: all'
+    replace: '- hosts\: oscap_target'
+    backup: yes
    
 #  - name: delete local git repo folder
 #    command: rm -rf /home/ops/ansible-tower-examples/
