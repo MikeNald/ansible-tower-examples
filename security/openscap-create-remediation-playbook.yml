@@ -72,9 +72,8 @@
   - name: replace target host with correct target  
     replace:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: '- hosts\: all'
-     replace: '- hosts\: oscap_target'
-     backup: yes    
+     regexp: '- hosts: all'
+     replace: '- hosts: oscap_target'    
       
   - name: git commit 
     shell: cd /home/ops/ansible-tower-examples/; git commit -m "add new playbook for fixing sec issue on host {{ inventory_hostname }}"
