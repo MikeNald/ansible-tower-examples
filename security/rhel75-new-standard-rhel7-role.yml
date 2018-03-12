@@ -26,7 +26,7 @@
 ###############################################################################
 
 
- - hosts: all
+ - hosts: oscap_target
    vars:
    tasks:
     - name: "Read permission of GPG key directory"
