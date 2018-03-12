@@ -28,6 +28,9 @@
 
  - hosts: oscap_target
    vars:
+   become: true
+   become_user: root
+   
    tasks:
     - name: "Read permission of GPG key directory"
       stat:
