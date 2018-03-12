@@ -75,8 +75,9 @@
   - name: git push
     shell: cd /home/ops/ansible-tower-examples/; git push
     become_user: ops
-    
-  - replace:
+  
+  - name: replace target host with correct target  
+    replace:
     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
     regexp: '- hosts\: all'
     replace: '- hosts\: oscap_target'
