@@ -29,6 +29,7 @@
  - hosts: oscap_target
    vars:
    become: true
+   become_method: su
    become_user: root
    
    tasks:
