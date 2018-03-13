@@ -70,28 +70,28 @@
      regexp: '- hosts: all'
      replace: '- hosts: oscap_target'   
      
-  - name: delete when ansible_user condition
-    lineinfile:
-     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: 'when: ansible_user == "root"'
-     state: absent      
+ # - name: delete when ansible_user condition
+ #   lineinfile:
+ #    path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
+ #    regexp: 'when: ansible_user == "root"'
+ #    state: absent      
      
-  - name: delete root user configuration block 
-    replace:
-      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-      regexp: "{{ item }}"
-    with_items:
-    - '^- name: "Fail if user is not root"'
-    - '^fail:'
-    - '^when: ansible_user != "root"'
-    - '^tags:'
-    - '^- accounts_root_path_dirs_no_write'
-    - '^low_severity'
-    - '^restrict_strategy'
-    - '^low_complexity'
-    - '^medium_disruption'
-    - '^CCE-80200-9'
-    - '^NIST-800-53-CM-6(b)'
+ # - name: delete root user configuration block 
+ #   replace:
+ #     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
+ #     regexp: "{{ item }}"
+ #   with_items:
+ #   - '^- name: "Fail if user is not root"'
+ #   - '^fail:'
+ #   - '^when: ansible_user != "root"'
+ #   - '^tags:'
+ #   - '^- accounts_root_path_dirs_no_write'
+ #   - '^low_severity'
+ #   - '^restrict_strategy'
+ #   - '^low_complexity'
+ #   - '^medium_disruption'
+ #   - '^CCE-80200-9'
+ #   - '^NIST-800-53-CM-6(b)'
 
      
   - name: add new playbook to git 
