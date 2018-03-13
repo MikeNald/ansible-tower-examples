@@ -82,7 +82,7 @@
       regexp: '"{{ item }}"'
       state: absent
     with_items:
-    - name: Fail if user is not root
+    - - name: "Fail if user is not root"
     - fail:
      #- msg: Root account required to read root $PATH
      #- when: ansible_user != "root"
