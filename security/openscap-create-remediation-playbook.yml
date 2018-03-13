@@ -7,7 +7,7 @@
   
   tasks:
 
-  - name: create openscap remediation playbook
+  - name: create openscap remediation playbook based on profile 
     command: oscap xccdf generate fix \
         --fix-type ansible \
         --profile {{ oscap_profile }} \
