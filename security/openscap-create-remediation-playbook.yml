@@ -71,9 +71,9 @@
      replace: '- hosts: oscap_target'   
      
   - name: delete when ansible_user condition
-    lineinfile:
+    replace:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-    regexp: 'when: ansible_user == "root"|^fail:|^msg:'
+     regexp: 'when: ansible_user == "root"|^fail:|^msg:|/Fail if user is not root/'
  #    state: absent      
      
  # - name: delete root user configuration block 
