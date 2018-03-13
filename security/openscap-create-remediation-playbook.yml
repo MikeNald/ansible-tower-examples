@@ -83,11 +83,11 @@
      regexp: '- name: "Fail if user is not root"'
      replace: '#' 
      
-  -  name: avoiding fail message 
-     replace:
-      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-      regexp: 'fail:'
-      replace: '#'
+  - name: avoiding fail message 
+    replace:
+     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
+     regexp: 'fail:'
+     replace: '#'
      
   - name: avoiding fail message  2
     replace:
