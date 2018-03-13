@@ -481,8 +481,8 @@
         - DISA-STIG-RHEL-07-010290
     
     
-    - name: "Fail if user is not root"
-      fail:
+    #
+      #
         msg: 'Root account required to read root $PATH'
       # old when condition
       tags:
