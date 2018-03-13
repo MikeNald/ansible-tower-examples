@@ -73,7 +73,7 @@
   - name: delete root when condition in {{ inventory_hostname }}-standard-rhel7-role.yml
     blockinfile:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     block: 
+     block: "register: root_paths"
       ansible_user == "root"
      state: absent 
      backup: yes
@@ -81,7 +81,7 @@
   - name: delete root user configuration block in {{ inventory_hostname }}-standard-rhel7-role.yml
     blockinfile:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     block: 
+     block: "- name: "Fail if user is not root""
       - name: "Fail if user is not root"
         fail:
           msg: 'Root account required to read root $PATH'
