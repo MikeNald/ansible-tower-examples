@@ -75,6 +75,14 @@
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
      regexp: 'when: ansible_user != "root"|when: ansible_user == "root"'
      replace: '# old when condition' 
+     
+     
+  - name: avoiding fail message 
+    replace:
+     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
+     regexp: '- name: "Fail if user is not root"|fail:|msg: 'Root account required to read root $PATH''
+     replace: '' 
+     
  
   - name: add new playbook to git 
     shell: cd /home/ops/ansible-tower-examples/; git add "{{ item }}"          
