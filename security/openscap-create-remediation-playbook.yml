@@ -74,7 +74,7 @@
     blockinfile:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
      marker: "register: root_paths"
-     block:
+     content: |
       ansible_user == "root"
      state: absent 
      backup: yes
@@ -83,7 +83,7 @@
     blockinfile:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
      marker: "- name: "Fail if user is not root""
-     block:
+     content: |
       - name: "Fail if user is not root"
         fail:
           msg: 'Root account required to read root $PATH'
