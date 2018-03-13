@@ -70,32 +70,14 @@
      regexp: '- hosts: all'
      replace: '- hosts: oscap_target'   
      
-  - name: avoiding usage of root account 
-    replace:
-     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: 'when: ansible_user != "root"|when: ansible_user == "root"'
-     replace: '# old when condition' 
+ # - name: delete root user configuration block in {{ inventory_hostname }}-standard-rhel7-role.yml
+ #   blockinfile:
+ #    path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
+ #    block: |
+ #     Match User ansible-agent
+ #     PasswordAuthentication no
+     state: absent
      
-     
-  - name: avoiding fail message 
-    replace:
-     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: '- name: "Fail if user is not root"'
-     replace: '#' 
-     
-  - name: avoiding fail message 
-    replace:
-     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: 'fail:'
-     replace: '#'
-     
-  - name: avoiding fail message  2
-    replace:
-     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: 'msg: 'Root account required to read root $PATH''
-     replace: '#'
-     
- 
   - name: add new playbook to git 
     shell: cd /home/ops/ansible-tower-examples/; git add "{{ item }}"          
     with_items:
