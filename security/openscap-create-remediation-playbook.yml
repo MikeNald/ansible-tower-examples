@@ -70,33 +70,18 @@
      regexp: '- hosts: all'
      replace: '- hosts: oscap_target'   
      
-  - name: delete root when condition in {{ inventory_hostname }}-standard-rhel7-role.yml
-    blockinfile:
+  - name: replace when ansible_user condition
+    replace:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     marker: "register: root_paths"
-     content: |
-      ansible_user == "root"
-     state: absent 
-     backup: yes
+     regexp: 'when: ansible_user == "root"'
+     replace: ''        
      
-  - name: delete root user configuration block in {{ inventory_hostname }}-standard-rhel7-role.yml
+  - name: delete root user configuration block 
     blockinfile:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     marker: "- name: Fail if user is not root"
-     content: |
-      - name: "Fail if user is not root"
-        fail:
-          msg: 'Root account required to read root $PATH'
-        when: ansible_user != "root"
-        tags:
-          - accounts_root_path_dirs_no_write
-          - low_severity
-          - restrict_strategy
-          - low_complexity
-          - medium_disruption
-          - CCE-80200-9
-          - NIST-800-53-CM-6(b)
+     content: ""
      state: absent
+     insertafter: "- name: "Fail if user is not root""
      backup: yes
      
   - name: add new playbook to git 
