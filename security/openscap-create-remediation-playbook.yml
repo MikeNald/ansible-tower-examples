@@ -81,8 +81,8 @@
       path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
       regexp: '"{{ item }}"'
     with_items:
-    - 'name: "Fail if user is not root"'
-    - 'fail:'
+    - name: Fail if user is not root
+    - fail:
      #- msg: Root account required to read root $PATH
      #- when: ansible_user != "root"
 
