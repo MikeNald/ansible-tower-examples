@@ -80,6 +80,7 @@
     lineinfile:
       path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
       regexp: '"{{ item }}"'
+      state: absent
     with_items:
     - name: Fail if user is not root
     - fail:
