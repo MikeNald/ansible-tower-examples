@@ -24,4 +24,6 @@
         --report /tmp/oscap-report.html \
         --fetch-remote-resources \
         /usr/share/xml/scap/ssg/content/{{ oscap_policy }}
+      register: command_output  
+      failed_when: command_output.rc == 1
  
