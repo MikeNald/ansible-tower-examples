@@ -82,7 +82,7 @@
   - name: delete root user configuration block in {{ inventory_hostname }}-standard-rhel7-role.yml
     blockinfile:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     marker: "- name: "Fail if user is not root""
+     marker: "- name: Fail if user is not root"
      content: |
       - name: "Fail if user is not root"
         fail:
