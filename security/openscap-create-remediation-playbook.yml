@@ -73,7 +73,7 @@
   - name: avoiding usage of root account 
     replace:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: 'ansible_user != "root"|ansible_user == "root"'
+     regexp: 'when: ansible_user != "root"|ansible_user == "root"'
      replace: '' 
  
   - name: add new playbook to git 
