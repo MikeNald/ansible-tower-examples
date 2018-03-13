@@ -84,7 +84,7 @@
      with_items:
      - 'name: "Fail if user is not root"'
      - 'fail:'
-     - "msg: 'Root account required to read root $PATH'"
+     - 'msg: 'Root account required to read root $PATH''
      - 'when: ansible_user != "root"'
      - 'tags:'
      - - accounts_root_path_dirs_no_write
