@@ -79,19 +79,19 @@
   - name: delete when ansible_user == root condition 2
     replace:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: '^fail:'
+     regexp: '/^fail:'
      replace: ""  
   
   - name: delete when ansible_user == rootcondition 3
     replace:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: '^msg:'
+     regexp: '/^msg:'
      replace: ""  
   
   - name: delete when ansible_user == root condition 4
     replace:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: '/Fail if user is not root'
+     regexp: '/Fail if user is not root/'
      replace: "" 
   
  
