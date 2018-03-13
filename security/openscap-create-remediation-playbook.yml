@@ -71,17 +71,17 @@
      replace: '- hosts: oscap_target'   
      
   - name: replace when ansible_user condition
-    replace:
+    lineinfile:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
      regexp: 'when: ansible_user == "root"'
-     replace: ''        
+     state: absent      
      
   - name: delete root user configuration block 
     blockinfile:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     content: ""
+     block: ""
      state: absent
-     insertafter: '- name: "Fail if user is not root"'
+     insertafter: '^/- name: "Fail if user is not root"'
      backup: yes
      
   - name: add new playbook to git 
