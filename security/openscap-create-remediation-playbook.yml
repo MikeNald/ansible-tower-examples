@@ -81,7 +81,7 @@
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
      content: ""
      state: absent
-     insertafter: "- name: "Fail if user is not root""
+     insertafter: '- name: "Fail if user is not root"'
      backup: yes
      
   - name: add new playbook to git 
