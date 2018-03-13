@@ -484,7 +484,7 @@
     - name: "Fail if user is not root"
       fail:
         msg: 'Root account required to read root $PATH'
-      when: ansible_user != "root"
+      when: 
       tags:
         - accounts_root_path_dirs_no_write
         - low_severity
@@ -499,7 +499,7 @@
       changed_when: False
       failed_when: False
       register: root_paths
-      when: ansible_user == "root"
+      when: 
       check_mode: no
       tags:
         - accounts_root_path_dirs_no_write
