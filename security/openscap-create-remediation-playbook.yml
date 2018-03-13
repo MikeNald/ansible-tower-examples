@@ -80,9 +80,22 @@
   - name: avoiding fail message 
     replace:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     regexp: '- name: "Fail if user is not root"|fail:|msg: 'Root account required to read root $PATH''
+     regexp: '- name: "Fail if user is not root"'
      replace: '#' 
      
+  -  name: avoiding fail message 
+     replace:
+      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
+      regexp: 'fail:'
+      replace: '#'
+     
+  - name: avoiding fail message  2
+    replace:
+     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
+     regexp: 'msg: 'Root account required to read root $PATH'
+     replace: '#'
+     
+    
  
   - name: add new playbook to git 
     shell: cd /home/ops/ansible-tower-examples/; git add "{{ item }}"          
