@@ -79,7 +79,7 @@
   - name: delete root user configuration block 
     replace:
       path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-      regexp: '"{{ item }}"'
+      regexp: "{{ item }}"
     with_items:
     - '^- name: "Fail if user is not root"'
     - '^fail:'
