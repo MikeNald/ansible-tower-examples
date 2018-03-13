@@ -73,14 +73,15 @@
   - name: delete root when condition in {{ inventory_hostname }}-standard-rhel7-role.yml
     blockinfile:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     block: |
+     block: 
       ansible_user == "root"
      state: absent 
+     backup: yes
      
   - name: delete root user configuration block in {{ inventory_hostname }}-standard-rhel7-role.yml
     blockinfile:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
-     block: |
+     block: 
       - name: "Fail if user is not root"
         fail:
           msg: 'Root account required to read root $PATH'
@@ -94,6 +95,7 @@
           - CCE-80200-9
           - NIST-800-53-CM-6(b)
      state: absent
+     backup: yes
      
   - name: add new playbook to git 
     shell: cd /home/ops/ansible-tower-examples/; git add "{{ item }}"          
