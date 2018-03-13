@@ -76,7 +76,7 @@
  #    block: |
  #     Match User ansible-agent
  #     PasswordAuthentication no
-     state: absent
+ #    state: absent
      
   - name: add new playbook to git 
     shell: cd /home/ops/ansible-tower-examples/; git add "{{ item }}"          
