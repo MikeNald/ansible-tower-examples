@@ -68,7 +68,13 @@
     replace:
      path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
      regexp: '- hosts: all'
-     replace: '- hosts: oscap_target'    
+     replace: '- hosts: oscap_target'   
+     
+  - name: avoiding usage of root account 
+    replace:
+     path: /home/ops/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml
+     regexp: 'ansible_user != "root"|ansible_user == "root"'
+     replace: '' 
  
   - name: add new playbook to git 
     shell: cd /home/ops/ansible-tower-examples/; git add "{{ item }}"          
