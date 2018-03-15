@@ -4,7 +4,7 @@
    
    - name: install subscription-manager
      yum:
-     name: subscription-manager
+      name: subscription-manager
    
    - name: subscription manager auto-attach
      redhat_subscription:
