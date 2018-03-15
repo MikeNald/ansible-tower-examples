@@ -15,7 +15,7 @@
    
    - name: install redhat-access-insights
      yum:
-     name: redhat-access-insights
+      name: redhat-access-insights
  
    - name: insights registration 
      command: redhat-access-insights --register
