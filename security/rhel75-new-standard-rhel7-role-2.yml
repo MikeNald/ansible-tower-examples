@@ -188,7 +188,8 @@
     
     - name: "Read list of files with incorrect permissions"
       shell: "rpm -Va | grep '^.M' | cut -d ' ' -f5- | sed -r 's;^.*\\s+(.+);\\1;g'"
-       warn: False
+      args:
+        warn: False
       register: files_with_incorrect_permissions
       failed_when: False
       changed_when: False
