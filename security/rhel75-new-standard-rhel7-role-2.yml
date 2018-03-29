@@ -192,6 +192,7 @@
       failed_when: False
       changed_when: False
       check_mode: no
+      warn: False
       tags:
         - rpm_verify_permissions
         - high_severity
