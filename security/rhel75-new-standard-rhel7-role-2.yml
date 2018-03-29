@@ -299,7 +299,8 @@
     
     - name: "Reinstall packages of files with incorrect hash"
       shell: "{{package_manager_reinstall_cmd}} $(rpm -qf '{{item}}')"
-      with_items: "{{ files_with_incorrect_hash.stdout_lines }}"
+      #with_items: "{{ files_with_incorrect_hash.stdout_lines }}"
+      with_items: "{{ files_with_incorrect_hash.stdout }}"
       when: package_manager_reinstall_cmd is defined and (files_with_incorrect_hash.stdout_lines | length > 0)
       tags:
         - rpm_verify_hashes
