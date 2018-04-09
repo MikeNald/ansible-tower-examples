@@ -1,3 +1,9 @@
 ---
 - name: Deploy a custom index.html with the hostname of the machine
   template: src=index.html.j2 dest=/var/www/html/index.html
+  
+- name: copy background images for index.html
+  copy:
+    src: /var/tmp/inteltour.png
+    dest: /var/www/html/inteltour.png
+   
