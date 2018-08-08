@@ -3,9 +3,9 @@
   template: src=index.html.j2 dest=/var/www/html/index.html
  
 - name: Download background images for index.html
-   uri:
-     url: https://github.com/MikeNald/ansible-tower-examples/blob/master/inteltour.png
-     dest: /var/tmp
+  uri:
+    url: https://github.com/MikeNald/ansible-tower-examples/blob/master/inteltour.png
+    dest: /var/tmp
   
 - name: copy background images for index.html
   copy:
