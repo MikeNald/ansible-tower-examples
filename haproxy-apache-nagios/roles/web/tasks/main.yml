@@ -8,7 +8,5 @@
     dest: /var/tmp/inteltour.png
   
 - name: copy background images for index.html
-  copy:
-    src: /var/tmp/inteltour.png
-    dest: /var/www/html/inteltour.png
+  command: cp -p /var/tmp/inteltour.png /var/www/html/inteltour.png
    
