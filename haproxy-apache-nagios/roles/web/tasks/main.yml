@@ -1,6 +1,10 @@
 ---
 - name: Deploy a custom index.html with the hostname of the machine
   template: src=index.html.j2 dest=/var/www/html/index.html
+ 
+- name: Download background images for index.html
+   url: https://github.com/MikeNald/ansible-tower-examples/blob/master/inteltour.png
+   dest: /var/tmp
   
 - name: copy background images for index.html
   copy:
