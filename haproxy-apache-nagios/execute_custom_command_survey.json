@@ -1,0 +1,18 @@
+
+{
+  "spec": [
+    {
+      "required": true, 
+      "min": 0, 
+      "default": "", 
+      "max": 1024, 
+      "question_description": "", 
+      "choices": "", 
+      "variable": "targethost", 
+      "question_name": "Please type the server name where the command will be executed ", 
+      "type": "text"
+    }
+  ], 
+  "description": "", 
+  "name": ""
+}
