@@ -11,7 +11,7 @@
       "variable": "targethost", 
       "question_name": "Please type the server name where the command will be executed ", 
       "type": "text"
-    }
+    },
     {
       "required": true, 
       "min": 0, 
