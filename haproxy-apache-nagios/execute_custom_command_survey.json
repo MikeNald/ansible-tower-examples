@@ -12,6 +12,17 @@
       "question_name": "Please type the server name where the command will be executed ", 
       "type": "text"
     }
+    {
+      "required": true, 
+      "min": 0, 
+      "default": "", 
+      "max": 1024, 
+      "question_description": "", 
+      "choices": "", 
+      "variable": "customcommand", 
+      "question_name": "Please type the custom command you want to execute ", 
+      "type": "text"
+    }
   ], 
   "description": "", 
   "name": ""
