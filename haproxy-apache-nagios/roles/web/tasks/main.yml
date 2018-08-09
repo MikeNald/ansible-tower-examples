@@ -4,7 +4,7 @@
  
 - name: Download background images for index.html
   uri:
-    url: https://github.com/MikeNald/ansible-tower-examples/blob/master/inteltour.png
+    url: https://raw.githubusercontent.com/MikeNald/ansible-tower-examples/master/inteltour.png
     dest: /var/tmp/inteltour.png
   
 - name: copy background images for index.html
