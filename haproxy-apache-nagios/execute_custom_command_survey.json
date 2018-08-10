@@ -1,4 +1,3 @@
-
 {
   "spec": [
     {
@@ -8,22 +7,24 @@
       "max": 1024, 
       "question_description": "", 
       "choices": "", 
+      "new_question": true, 
       "variable": "targethost", 
-      "question_name": "Please type the server name where the command will be executed ", 
+      "question_name": "PLEASE TYPE THE TARGET HOST TO EXECUTE THE CUSTOM COMMAND", 
       "type": "text"
-    },
+    }, 
     {
-      "required": true, 
+      "question_description": "", 
       "min": 0, 
       "default": "", 
       "max": 1024, 
-      "question_description": "", 
+      "required": true, 
       "choices": "", 
+      "new_question": true, 
       "variable": "customcommand", 
-      "question_name": "Please type the custom command you want to execute ", 
+      "question_name": "PLEASE TYPE THE CUSTOM COMMAND YOU WISH TO RUN ON THE TARGET HOST", 
       "type": "text"
     }
   ], 
-  "description": "", 
-  "name": ""
+  "name": "", 
+  "description": ""
 }
