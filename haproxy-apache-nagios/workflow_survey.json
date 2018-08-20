@@ -1,0 +1,30 @@
+{
+  "spec": [
+    {
+      "required": true, 
+      "min": 0, 
+      "default": "", 
+      "max": 1024, 
+      "question_description": "", 
+      "choices": "", 
+      "new_question": true, 
+      "variable": "targethost", 
+      "question_name": "PLEASE TYPE THE TARGET HOST SUBJET TO WORKFLOW PROCESS", 
+      "type": "text"
+    }, 
+    {
+      "question_description": "", 
+      "min": 0, 
+      "default": "", 
+      "max": 1024, 
+      "required": true, 
+      "choices": "", 
+      "new_question": true, 
+      "variable": "customcommand", 
+      "question_name": "PLEASE TYPE THE CUSTOM COMMAND YOU WISH TO RUN ON THE TARGET HOST", 
+      "type": "text"
+    }
+  ], 
+  "name": "", 
+  "description": ""
+}
