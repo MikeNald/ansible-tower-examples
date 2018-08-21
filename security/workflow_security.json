@@ -1,0 +1,8 @@
+- id: 61
+  job_template: 18
+  success_nodes:
+  - id: 62
+    job_template: 19
+    success_nodes:
+    - id: 63
+      job_template: 20
