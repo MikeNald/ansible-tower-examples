@@ -129,8 +129,8 @@
   - name: add new playbook to git (git add)
     shell: cd /home/mike/ansible-tower-examples/; git add -f "{{ item }}"          
     with_items:
-     - "{{ inventory_hostname }}"-standard-rhel7-role.yml 
-     - report/"{{ inventory_hostname }}"-scan-xccdf-report.html
+     - {{ inventory_hostname }}-standard-rhel7-role.yml 
+     - report/{{ inventory_hostname }}-scan-xccdf-report.html
     #- /home/mike/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml 
     #- /home/mike/ansible-tower-examples/security/report/{{ inventory_hostname }}-scan-xccdf-report.html
      
