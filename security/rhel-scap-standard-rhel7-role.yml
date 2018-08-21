@@ -483,18 +483,18 @@
         - DISA-STIG-RHEL-07-010290
     
     
-    - name: "Fail if user is not root"
-      fail:
-        msg: 'Root account required to read root $PATH'
-      when: ansible_user != "root"
-      tags:
-        - accounts_root_path_dirs_no_write
-        - low_severity
-        - restrict_strategy
-        - low_complexity
-        - medium_disruption
-        - CCE-80200-9
-        - NIST-800-53-CM-6(b)
+    #- name: "Fail if user is not root"
+    #  fail:
+    #    msg: 'Root account required to read root $PATH'
+    #  when: ansible_user != "root"
+    #  tags:
+    #    - accounts_root_path_dirs_no_write
+    #    - low_severity
+    #    - restrict_strategy
+    #    - low_complexity
+    #    - medium_disruption
+    #    - CCE-80200-9
+    #    - NIST-800-53-CM-6(b)
     
     - name: "Get root paths which are not symbolic links"
       shell: 'tr ":" "\n" <<< "$PATH" | xargs -I% find % -maxdepth 0 -type d'
