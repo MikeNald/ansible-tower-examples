@@ -130,7 +130,7 @@
 
   
   - name: git push
-    shell: export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa-gce; cd /home/mike/ansible-tower-examples/; git push
+    shell: export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa-gce'; cd /home/mike/ansible-tower-examples/; git push
     become_user: mike
    
 #  - name: delete local git repo folder
