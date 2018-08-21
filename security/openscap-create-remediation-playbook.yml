@@ -30,6 +30,9 @@
   - name: accept ssh keys for git
     shell: ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
     
+  - name: configure git push mode
+    command: git config --global push.default simple
+    
   - name: cloning git repo locally
     git:
      repo: ssh://git@github.com/MikeNald/ansible-tower-examples.git
