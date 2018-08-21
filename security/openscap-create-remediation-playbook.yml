@@ -18,8 +18,8 @@
   - name: fixing permission on output playbook
     file:
       path: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
-      owner: ops
-      group: ops
+      owner: mike
+      group: mike
       mode: 0755
     
   - name: install git 
@@ -33,8 +33,8 @@
   - name: cloning git repo locally
     git:
      repo: ssh://git@github.com/MikeNald/ansible-tower-examples.git
-     dest: /home/ops/ansible-tower-examples
-     key_file: /home/ops/.ssh/id_rsa
+     dest: /home/mike/ansible-tower-examples
+     key_file: /home/mike/.ssh/id_rsa
      accept_hostkey: yes
      force: yes  
   
