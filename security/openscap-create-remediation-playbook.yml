@@ -129,17 +129,16 @@
   - name: add new playbook to git (git add)
     shell: cd /home/mike/ansible-tower-examples/; git add -f "{{ item }}"          
     with_items:
-     - "{{ inventory_hostname }}"-standard-rhel7-role.yml 
-     - report/"{{ inventory_hostname }}"-scan-xccdf-report.html
-    #- /home/mike/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml 
-    #- /home/mike/ansible-tower-examples/security/report/{{ inventory_hostname }}-scan-xccdf-report.html
-     
+     - /home/mike/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml 
+     - /home/mike/ansible-tower-examples/security/report/{{ inventory_hostname }}-scan-xccdf-report.html
+    become_user: mike
+  
   - name: git commit 
     shell: cd /home/mike/ansible-tower-examples/; git commit -m "add new playbook for fixing sec issue on host {{ inventory_hostname }}"
     
   - name: git push
     shell: cd /home/mike/ansible-tower-examples/; git push
-    #become_user: mike
+    become_user: mike
    
 #  - name: delete local git repo folder
 #    command: rm -rf /home/ops/ansible-tower-examples/
