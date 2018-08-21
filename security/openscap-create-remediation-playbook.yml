@@ -129,7 +129,7 @@
   - name: set permission for id_rsa-gce private key
     file:
      path: /home/mike/.ssh/id_rsa-gce
-     owner: miie
+     owner: mike
      group: mike
      mode: 0600
      
