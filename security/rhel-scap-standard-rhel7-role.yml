@@ -27,8 +27,6 @@
 
 
  - hosts: security
-   become: true
-   become_user: root
    vars:
    tasks:
     - name: "Read permission of GPG key directory"
