@@ -129,7 +129,7 @@
     shell: cd /home/mike/ansible-tower-examples/; git commit -m "add new playbook for fixing sec issue on host {{ inventory_hostname }}"
 
   - name: configure git ssh private key
-    shell: GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa-gce -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' \
+    shell: export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa-gce -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' \
   
   - name: git push
     shell: cd /home/mike/ansible-tower-examples/; git push
