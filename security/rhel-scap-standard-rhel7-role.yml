@@ -27,6 +27,7 @@
 
 
  - hosts: security
+   become: true
    vars:
    tasks:
     - name: "Read permission of GPG key directory"
