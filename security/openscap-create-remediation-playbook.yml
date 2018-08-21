@@ -124,16 +124,17 @@
     with_items:
     - /home/mike/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml 
     - /home/mike/ansible-tower-examples/security/report/{{ inventory_hostname }}-scan-xccdf-report.html  
-    
-  - name: git commit 
-    shell: cd /home/mike/ansible-tower-examples/; git commit -m "add new playbook for fixing sec issue on host {{ inventory_hostname }}"
+   
 
   - name: set permission for id_rsa-gce private key
     file:
-     path: ~/.ssh/id_rsa-gce
+     path: /home/mike/.ssh/id_rsa-gce
      owner: miie
      group: mike
      mode: 0600
+     
+  - name: git commit 
+    shell: cd /home/mike/ansible-tower-examples/; git commit -m "add new playbook for fixing sec issue on host {{ inventory_hostname }}"
     
   - name: git push
     shell: export GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa-gce'; cd /home/mike/ansible-tower-examples/; git push
