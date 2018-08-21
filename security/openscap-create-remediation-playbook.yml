@@ -14,7 +14,10 @@
         --profile {{ oscap_profile }} \
         --output /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml \
         /usr/share/xml/scap/ssg/content/{{ oscap_policy }}
-  
+        
+  - name: fix ansible_user on rhel-scap-standard-rhel7-role.yml file
+    shell: sed -i '/"Fail if user is not root"/,+11d' /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
+      
   - name: fixing permission on output playbook
     file:
       path: /tmp/{{ inventory_hostname }}-standard-rhel7-role.yml
