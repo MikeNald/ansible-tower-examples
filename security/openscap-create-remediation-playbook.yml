@@ -127,7 +127,7 @@
      mode: 0600
      
   - name: add new playbook to git (git add)
-    shell: cd /home/mike/ansible-tower-examples/; git add "{{ item }}"          
+    shell: cd /home/mike/ansible-tower-examples/; git add -f "{{ item }}"          
     with_items:
     - /home/mike/ansible-tower-examples/security/{{ inventory_hostname }}-standard-rhel7-role.yml 
     - /home/mike/ansible-tower-examples/security/report/{{ inventory_hostname }}-scan-xccdf-report.html
