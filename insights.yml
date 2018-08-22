@@ -2,16 +2,16 @@
 - hosts: all
   tasks:
    
-   - name: install subscription-manager
-     yum:
-      name: subscription-manager
+   #- name: install subscription-manager
+   #  yum:
+   #   name: subscription-manager
    
-   - name: subscription manager auto-attach
-     redhat_subscription:
-      state: present
-      username: "{{ rh_username }}"
-      password: "{{ rh_password }}"
-      autosubscribe: true
+   #- name: subscription manager auto-attach
+   #  redhat_subscription:
+   #   state: present
+   #   username: "{{ rh_username }}"
+   #   password: "{{ rh_password }}"
+   #  autosubscribe: true
    
    - name: install redhat-access-insights
      yum:
