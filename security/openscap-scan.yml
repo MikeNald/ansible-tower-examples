@@ -1,4 +1,4 @@
-#- hosts: oscap_target
+
 - hosts: security
 
   vars:
