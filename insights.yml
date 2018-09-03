@@ -18,4 +18,4 @@
       name:  insights-client
  
    - name: insights registration 
-     command: redhat-access-insights --register
+     command: redhat-access-insights --register --display-name "{{ ansible_hostname }}"
