@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+   
+   
+   
+   - name: check hostname
+     shell: hostname
+ 
+   - name: list files on /
+     shell: ls -lart /
