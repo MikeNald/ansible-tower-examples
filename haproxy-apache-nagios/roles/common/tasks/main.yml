@@ -52,14 +52,14 @@
   ignore_errors: yes
   
   
- - name: Open listen port (if provided as extra var) on firewall on every server
-   firewalld:
-    port:  {{ listenport }}
-    permanent: true
-    immediate: true
-    state: enabled
-   ignore_errors: yes
-   when: listenport is defined 
+- name: Open listen port (if provided as extra var) on firewall on every server
+  firewalld:
+   port:  {{ listenport }}
+   permanent: true
+   immediate: true
+   state: enabled
+  ignore_errors: yes
+  when: listenport is defined 
 
 - name: test to see if selinux is running
   command: getenforce
