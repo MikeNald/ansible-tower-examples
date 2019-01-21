@@ -54,7 +54,7 @@
   
 - name: Open listen port (if provided as extra var) on firewall on every server
   firewalld:
-   port:  ""{{ listenport }}"/tcp" 
+   port:  "{{ listenport }}/tcp" 
    permanent: true
    immediate: true
    state: enabled
