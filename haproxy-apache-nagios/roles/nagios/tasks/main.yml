@@ -2,7 +2,7 @@
 # This will install nagios
 
 - name: create conf.d dir for nagios configuration files if doesn't exist
-- file:
+  file:
     path: /etc/nagios/conf.d
     state: directory
     mode: 0755
