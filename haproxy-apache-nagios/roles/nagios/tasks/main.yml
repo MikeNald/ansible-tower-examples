@@ -1,5 +1,4 @@
 ---
-# This will install nagios
 
 - name: create conf.d dir for nagios configuration files if doesn't exist
   file:
