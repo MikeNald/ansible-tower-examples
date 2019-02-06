@@ -1,6 +1,14 @@
 ---
 # This will install nagios
 
+- name: create conf.d dir for nagios configuration files if doesn't exist
+- file:
+    path: /etc/nagios/conf.d
+    state: directory
+    mode: 0755
+    owner: nagios
+    group: nagios
+  
 - name: copy selinux module for nagios 4
   copy: src=nagios-module.pp dest=/tmp/nagios-module.pp
 
