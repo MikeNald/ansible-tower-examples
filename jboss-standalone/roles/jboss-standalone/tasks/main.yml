@@ -16,22 +16,16 @@
 
 - name: Extract archive
   unarchive:
-    dest: /usr/share
+    dest: /var/tmp/jboss
     src: /var/tmp/jboss-as-7.1.1.Final.zip
-    creates: /usr/share/jboss-as
+    creates: /var/tmp/jboss-as
     copy: no
 
-  # Rename the dir to avoid encoding the version in the init script
-- name: Rename install directory
-  command: /bin/mv jboss-as-7.1.1.Final jboss-as 
-  args:
-    chdir: /usr/share 
-    creates: /usr/share/jboss-as
 
 - name: Copying standalone.xml configuration file
   template:
     src: standalone.xml
-    dest: /usr/share/jboss-as/standalone/configuration/
+    dest: /var/tmp/jboss-as/standalone/configuration/
   notify: restart jboss
 
 - name: Add group "jboss"
@@ -42,11 +36,11 @@
   user:
     name: jboss
     group: jboss
-    home: /usr/share/jboss-as
+    home: /var/tmp/jboss-as
 
 - name: Change ownership of JBoss installation
   file:
-    path: /usr/share/jboss-as/
+    path: /var/tmp/jboss-as/
     owner: jboss
     group: jboss
     state: directory
