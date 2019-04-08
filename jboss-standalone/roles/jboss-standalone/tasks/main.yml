@@ -16,7 +16,7 @@
 
 - name: Extract archive
   unarchive:
-    dest: /var/tmp/jboss
+    dest: /var/tmp/
     src: /var/tmp/jboss-as-7.1.1.Final.zip
     creates: /var/tmp/jboss-as
     copy: no
