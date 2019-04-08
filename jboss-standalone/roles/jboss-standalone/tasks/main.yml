@@ -1,6 +1,4 @@
 ---
-remote_user: root
-
 - name: Install Java 1.7 and some basic dependencies
   yum:
     name: "{{ item }}"
