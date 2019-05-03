@@ -54,8 +54,11 @@
     - webservers.cfg
     - lbservers.cfg
   notify: restart nagios
-
-- name: start nagios
+  
+- name: start nagios using cli
+  shell: /usr/sbin/nagios -d /etc/nagios/nagios.cfg
+  
+- name: enable nagios
   service: name=nagios state=started enabled=yes
 
 - name: start httpd
