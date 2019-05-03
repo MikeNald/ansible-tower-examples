@@ -58,8 +58,8 @@
 - name: start nagios using cli
   shell: /usr/sbin/nagios -d /etc/nagios/nagios.cfg
   
-- name: enable nagios
-  service: name=nagios state=started enabled=yes
+#- name: enable nagios
+#  service: name=nagios state=started enabled=yes
 
 - name: start httpd
   service: name=httpd state=started enabled=yes
