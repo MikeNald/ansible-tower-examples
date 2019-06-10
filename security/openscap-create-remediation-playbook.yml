@@ -42,7 +42,7 @@
     
   - name: cloning git repo locally
     git:
-     repo: https://github.com/MikeNald/ansible-tower-examples.git
+     repo: git@github.com:MikeNald/ansible-tower-examples.git
      dest: /home/mike/ansible-tower-examples
      key_file: /home/mike/.ssh/id_rsa
      accept_hostkey: yes
