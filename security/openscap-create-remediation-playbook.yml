@@ -40,7 +40,7 @@
     git:
      repo: https://github.com/MikeNald/ansible-tower-examples.git
      dest: /home/mike/ansible-tower-examples
-     #key_file: /home/mike/.ssh/id_rsa
+     key_file: /home/mike/.ssh/id_rsa
      accept_hostkey: yes
      force: yes  
   
@@ -77,12 +77,12 @@
      regexp: '- hosts: all'
      replace: '- hosts: security' 
     
-  #- name: set permission for id_rsa private key
-   # file:
-   # path: /home/mike/.ssh/id_rsa
-   #  owner: mike
-   #  group: mike
-   #  mode: 0600
+  - name: set permission for id_rsa private key
+    file:
+     path: /home/mike/.ssh/id_rsa
+     owner: mike
+     group: mike
+     mode: 0600
      
   - name: add new playbook to git (git add)
     shell: cd /home/mike/ansible-tower-examples/; git add -f "{{ item }}"          
