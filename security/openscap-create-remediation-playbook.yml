@@ -7,6 +7,10 @@
   become: true
   
   tasks:
+  
+  - name: generate ssh keypar
+    openssh_keypair:
+      path: /home/mike/.ssh/id_rsa
 
   - name: create openscap remediation playbook based on profile 
     command: oscap xccdf generate fix \
