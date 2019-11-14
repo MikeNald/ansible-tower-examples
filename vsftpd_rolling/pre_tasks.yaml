@@ -1,0 +1,11 @@
+- hosts: vsftpd
+  serial: 2
+
+  # These are the tasks to run before applying updates:
+  pre_tasks:
+
+  - name: Disable service vsftpd
+    service:
+      name: vsftpd
+      enabled: no
+

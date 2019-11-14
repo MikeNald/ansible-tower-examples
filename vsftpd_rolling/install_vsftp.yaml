@@ -1,0 +1,8 @@
+---
+hosts: vsftpd
+ tasks:
+  - name: install vsftpd on rhel servers grouped on vsftpd group
+    yum: 
+      name: vsftpd
+      state: latest
+

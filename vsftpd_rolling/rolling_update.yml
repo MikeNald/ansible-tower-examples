@@ -1,0 +1,12 @@
+---
+# This playbook does a rolling update for all vsftpd serially (one at a time).
+# Change the value of serial: to adjust the number of server to be updated.
+#
+
+- hosts: vsftpd
+  serial: 2 
+  tasks:
+  - name: Update the system packages
+    yum: 
+      name: '*'
+      state: latest
